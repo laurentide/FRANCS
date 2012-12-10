@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2003/10/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <rd:GridSpacing>0.25cm</rd:GridSpacing>
+  <RightMargin>2.5cm</RightMargin>
+  <Body>
+    <ReportItems>
+      <Chart Name="FeedBacks_Type">
+        <ThreeDProperties>
+          <Rotation>30</Rotation>
+          <Inclination>30</Inclination>
+          <Shading>Simple</Shading>
+          <WallThickness>50</WallThickness>
+        </ThreeDProperties>
+        <Style>
+          <BackgroundColor>White</BackgroundColor>
+        </Style>
+        <Legend>
+          <Visible>true</Visible>
+          <Style>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+          </Style>
+          <Position>BottomCenter</Position>
+        </Legend>
+        <Palette>Excel</Palette>
+        <ChartData>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>= Fields!NB_FeedBacks.Value</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel />
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+        </ChartData>
+        <CategoryAxis>
+          <Axis>
+            <Title>
+              <Caption>Months</Caption>
+              <Style>
+                <FontSize>12pt</FontSize>
+                <FontWeight>700</FontWeight>
+              </Style>
+            </Title>
+            <MajorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MinorGridLines>
+            <MajorTickMarks>Outside</MajorTickMarks>
+            <Min>0</Min>
+            <Margin>true</Margin>
+            <Visible>true</Visible>
+          </Axis>
+        </CategoryAxis>
+        <DataSetName>FeedBacks_Per_Type</DataSetName>
+        <Type>Column</Type>
+        <Title>
+          <Caption>Number of Feedbacks Per Type</Caption>
+          <Style>
+            <FontSize>14pt</FontSize>
+            <FontWeight>500</FontWeight>
+          </Style>
+        </Title>
+        <CategoryGroupings>
+          <CategoryGrouping>
+            <DynamicCategories>
+              <Grouping Name="FeedBacks_Type_CategoryGroup1">
+                <GroupExpressions>
+                  <GroupExpression>=Format(Fields!MONTH.Value, "MM-yyyy")</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <Label />
+            </DynamicCategories>
+          </CategoryGrouping>
+        </CategoryGroupings>
+        <SeriesGroupings>
+          <SeriesGrouping>
+            <DynamicSeries>
+              <Grouping Name="FeedBacks_Type_SeriesGroup1">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!FormType_Name.Value</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <Label />
+            </DynamicSeries>
+          </SeriesGrouping>
+        </SeriesGroupings>
+        <Subtype>Plain</Subtype>
+        <PlotArea>
+          <Style>
+            <BackgroundColor>WhiteSmoke</BackgroundColor>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+          </Style>
+        </PlotArea>
+        <ValueAxis>
+          <Axis>
+            <Title>
+              <Caption>Number of Feedbacks</Caption>
+              <Style>
+                <FontSize>12pt</FontSize>
+                <FontWeight>700</FontWeight>
+              </Style>
+            </Title>
+            <MajorGridLines>
+              <ShowGridLines>true</ShowGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MinorGridLines>
+            <MajorTickMarks>Outside</MajorTickMarks>
+            <Min>0</Min>
+            <Margin>true</Margin>
+            <Visible>true</Visible>
+            <Scalar>true</Scalar>
+          </Axis>
+        </ValueAxis>
+      </Chart>
+    </ReportItems>
+    <Style />
+    <Height>11.5cm</Height>
+    <ColumnSpacing>1cm</ColumnSpacing>
+  </Body>
+  <TopMargin>2.5cm</TopMargin>
+  <DataSources>
+    <DataSource Name="NCF">
+      <rd:DataSourceID>41deebcd-f52f-4da0-bf6f-fcb33aeb0c5d</rd:DataSourceID>
+      <DataSourceReference>NCF</DataSourceReference>
+    </DataSource>
+  </DataSources>
+  <Width>20.25cm</Width>
+  <DataSets>
+    <DataSet Name="FeedBacks_Per_Type">
+      <Fields>
+        <Field Name="MONTH">
+          <DataField>MONTH</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="FormType_Name">
+          <DataField>FormType_Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NB_FeedBacks">
+          <DataField>NB_FeedBacks</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>NCF</DataSourceName>
+        <CommandText>SELECT     MONTH, FormType_Name, NB_FeedBacks
+FROM         dbo.QRY_NB_Feedbacks_Per_Type
+WHERE     (MONTH BETWEEN @startDate AND @endDate)</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@startDate">
+            <Value>=Parameters!startDate.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@endDate">
+            <Value>=Parameters!endDate.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+    </DataSet>
+  </DataSets>
+  <LeftMargin>2.5cm</LeftMargin>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <PageHeight>29.7cm</PageHeight>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <PageWidth>21cm</PageWidth>
+  <rd:ReportID>59840aba-690b-4c31-b7ba-9e7f456ed87b</rd:ReportID>
+  <BottomMargin>2.5cm</BottomMargin>
+  <ReportParameters>
+    <ReportParameter Name="startDate">
+      <DataType>String</DataType>
+      <Prompt>Issue Date (yyyy-mm-dd):             From:</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="endDate">
+      <DataType>String</DataType>
+      <Prompt>To:</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Language>en-US</Language>
+</Report>

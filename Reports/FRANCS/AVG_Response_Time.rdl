@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2003/10/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <rd:GridSpacing>0.25cm</rd:GridSpacing>
+  <RightMargin>2.5cm</RightMargin>
+  <Body>
+    <ReportItems>
+      <Chart Name="Response_Time">
+        <ThreeDProperties>
+          <Rotation>30</Rotation>
+          <Inclination>30</Inclination>
+          <Shading>Simple</Shading>
+          <WallThickness>50</WallThickness>
+        </ThreeDProperties>
+        <Style>
+          <BackgroundColor>White</BackgroundColor>
+        </Style>
+        <Legend>
+          <Visible>true</Visible>
+          <Style>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+          </Style>
+          <Position>BottomCenter</Position>
+        </Legend>
+        <Palette>Excel</Palette>
+        <ChartData>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=Fields!AVG_Response_Time.Value</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel />
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+        </ChartData>
+        <CategoryAxis>
+          <Axis>
+            <Title>
+              <Caption>Weeks</Caption>
+              <Style>
+                <FontSize>12pt</FontSize>
+                <FontWeight>700</FontWeight>
+              </Style>
+            </Title>
+            <Style>
+              <FontSize>8pt</FontSize>
+            </Style>
+            <MajorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MinorGridLines>
+            <MajorTickMarks>Outside</MajorTickMarks>
+            <Min>0</Min>
+            <Visible>true</Visible>
+          </Axis>
+        </CategoryAxis>
+        <DataSetName>AVG_Response_Time</DataSetName>
+        <Type>Line</Type>
+        <Title>
+          <Caption>Average Response Time</Caption>
+          <Style>
+            <FontSize>14pt</FontSize>
+            <FontWeight>500</FontWeight>
+          </Style>
+        </Title>
+        <Width>21.25cm</Width>
+        <CategoryGroupings>
+          <CategoryGrouping>
+            <DynamicCategories>
+              <Grouping Name="AVG_Closing_Time_CategoryGroup1">
+                <GroupExpressions>
+                  <GroupExpression>=Format(Fields!Week.Value, "yyyy-MM-dd")</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <Label />
+            </DynamicCategories>
+          </CategoryGrouping>
+        </CategoryGroupings>
+        <Height>10cm</Height>
+        <SeriesGroupings>
+          <SeriesGrouping>
+            <StaticSeries>
+              <StaticMember>
+                <Label>Days</Label>
+              </StaticMember>
+            </StaticSeries>
+          </SeriesGrouping>
+        </SeriesGroupings>
+        <Subtype>Plain</Subtype>
+        <PlotArea>
+          <Style>
+            <BackgroundColor>WhiteSmoke</BackgroundColor>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+          </Style>
+        </PlotArea>
+        <ValueAxis>
+          <Axis>
+            <Title>
+              <Caption>Days</Caption>
+              <Style>
+                <FontSize>12pt</FontSize>
+                <FontWeight>700</FontWeight>
+              </Style>
+            </Title>
+            <Style>
+              <FontSize>8pt</FontSize>
+            </Style>
+            <MajorGridLines>
+              <ShowGridLines>true</ShowGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MinorGridLines>
+            <MajorTickMarks>Outside</MajorTickMarks>
+            <Min>0</Min>
+            <MajorInterval>5</MajorInterval>
+            <Reverse>true</Reverse>
+            <Margin>true</Margin>
+            <Visible>true</Visible>
+            <Scalar>true</Scalar>
+          </Axis>
+        </ValueAxis>
+      </Chart>
+    </ReportItems>
+    <Style />
+    <Height>11.5cm</Height>
+    <ColumnSpacing>1cm</ColumnSpacing>
+  </Body>
+  <TopMargin>2.5cm</TopMargin>
+  <DataSources>
+    <DataSource Name="NCF">
+      <rd:DataSourceID>6e1e916b-ae0f-4ad2-be99-d250fcad7d2a</rd:DataSourceID>
+      <DataSourceReference>NCF</DataSourceReference>
+    </DataSource>
+  </DataSources>
+  <Width>21.5cm</Width>
+  <DataSets>
+    <DataSet Name="AVG_Response_Time">
+      <Fields>
+        <Field Name="Week">
+          <DataField>Week</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="AVG_Response_Time">
+          <DataField>AVG_Response_Time</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>NCF</DataSourceName>
+        <CommandText>SELECT     Week, CASE WHEN AVG_Response_Time &lt; 0 THEN 0 ELSE AVG_Response_Time END AS AVG_Response_Time
+FROM         dbo.QRY_AVG_Response_Time
+WHERE     (Week BETWEEN @startDate AND @endDate)</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@startDate">
+            <Value>=Parameters!startDate.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@endDate">
+            <Value>=Parameters!endDate.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+    </DataSet>
+  </DataSets>
+  <LeftMargin>2.5cm</LeftMargin>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <PageHeight>29.7cm</PageHeight>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <PageWidth>21cm</PageWidth>
+  <rd:ReportID>b2d78b7c-5e5f-40c1-a9f3-3f99de64301d</rd:ReportID>
+  <BottomMargin>2.5cm</BottomMargin>
+  <ReportParameters>
+    <ReportParameter Name="startDate">
+      <DataType>DateTime</DataType>
+      <Prompt>Issue Date (yyyy-mm-dd):             From:</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="endDate">
+      <DataType>DateTime</DataType>
+      <Prompt>To:</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Language>en-US</Language>
+</Report>

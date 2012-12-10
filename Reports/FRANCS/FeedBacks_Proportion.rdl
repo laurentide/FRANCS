@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2003/10/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <rd:GridSpacing>0.25cm</rd:GridSpacing>
+  <RightMargin>2.5cm</RightMargin>
+  <Body>
+    <ReportItems>
+      <Chart Name="Proportion">
+        <ThreeDProperties>
+          <Rotation>30</Rotation>
+          <Inclination>30</Inclination>
+          <Shading>Simple</Shading>
+          <WallThickness>50</WallThickness>
+        </ThreeDProperties>
+        <Style>
+          <BackgroundColor>White</BackgroundColor>
+          <FontSize>12pt</FontSize>
+        </Style>
+        <Legend>
+          <Visible>true</Visible>
+          <Style>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+          </Style>
+          <Position>BottomCenter</Position>
+        </Legend>
+        <Palette>Excel</Palette>
+        <ChartData>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>= Fields!Percent.Value</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Style />
+                </DataLabel>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+        </ChartData>
+        <CategoryAxis>
+          <Axis>
+            <Title>
+              <Caption>Week</Caption>
+              <Style>
+                <FontSize>12pt</FontSize>
+                <FontWeight>700</FontWeight>
+              </Style>
+            </Title>
+            <Style />
+            <MajorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MinorGridLines>
+            <MajorTickMarks>Outside</MajorTickMarks>
+            <Margin>true</Margin>
+            <Visible>true</Visible>
+          </Axis>
+        </CategoryAxis>
+        <DataSetName>Feedback_proportion</DataSetName>
+        <Type>Bar</Type>
+        <Title>
+          <Caption>Proportion of feedbacks per week</Caption>
+          <Style>
+            <FontSize>14pt</FontSize>
+            <FontWeight>500</FontWeight>
+          </Style>
+        </Title>
+        <Width>20.5cm</Width>
+        <CategoryGroupings>
+          <CategoryGrouping>
+            <DynamicCategories>
+              <Grouping Name="chart1_CategoryGroup1">
+                <GroupExpressions>
+                  <GroupExpression>=Format(Fields!Week.Value, "yyyy-MM-dd")</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <Label />
+            </DynamicCategories>
+          </CategoryGrouping>
+        </CategoryGroupings>
+        <Height>10.75cm</Height>
+        <SeriesGroupings>
+          <SeriesGrouping>
+            <StaticSeries>
+              <StaticMember>
+                <Label>% of Feedbacks</Label>
+              </StaticMember>
+            </StaticSeries>
+          </SeriesGrouping>
+        </SeriesGroupings>
+        <Subtype>Plain</Subtype>
+        <PlotArea>
+          <Style>
+            <BackgroundColor>WhiteSmoke</BackgroundColor>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+          </Style>
+        </PlotArea>
+        <ValueAxis>
+          <Axis>
+            <Title>
+              <Caption>%</Caption>
+              <Style>
+                <FontSize>12pt</FontSize>
+                <FontWeight>700</FontWeight>
+              </Style>
+            </Title>
+            <MajorGridLines>
+              <ShowGridLines>true</ShowGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MinorGridLines>
+            <MajorTickMarks>Outside</MajorTickMarks>
+            <Min>0</Min>
+            <Max>100</Max>
+            <MajorInterval>10</MajorInterval>
+            <Margin>true</Margin>
+            <Visible>true</Visible>
+            <Scalar>true</Scalar>
+          </Axis>
+        </ValueAxis>
+      </Chart>
+    </ReportItems>
+    <Style />
+    <Height>13.5cm</Height>
+    <ColumnSpacing>1cm</ColumnSpacing>
+  </Body>
+  <TopMargin>2.5cm</TopMargin>
+  <DataSources>
+    <DataSource Name="NCF">
+      <rd:DataSourceID>1c2e23d1-0015-457b-bce0-31ee3b8bf45a</rd:DataSourceID>
+      <DataSourceReference>NCF</DataSourceReference>
+    </DataSource>
+  </DataSources>
+  <Width>20.75cm</Width>
+  <DataSets>
+    <DataSet Name="Feedback_proportion">
+      <Fields>
+        <Field Name="Week">
+          <DataField>Week</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Percent">
+          <DataField>Percent</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>NCF</DataSourceName>
+        <CommandText>SELECT     dbo.QRY_NB_FeedBacks_Per_Week.Sunday AS Week, 
+                      dbo.QRY_NB_FeedBacks_Per_Week.NB_Feedback_Status * 100 / dbo.QRY_NB_FeedBacks_Per_Week.NB_Feedback_Total AS [Percent]
+FROM         dbo.QRY_NB_FeedBacks_Per_Week INNER JOIN
+                      dbo.Status ON dbo.QRY_NB_FeedBacks_Per_Week.StatusNo = dbo.Status.StatusNo
+WHERE     (dbo.Status.Status_EN = @status)</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@status">
+            <Value>=Parameters!status.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+    </DataSet>
+    <DataSet Name="StatusList">
+      <Fields>
+        <Field Name="Status_EN">
+          <DataField>Status_EN</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>NCF</DataSourceName>
+        <CommandText>SELECT     Status_EN
+FROM         dbo.Status</CommandText>
+      </Query>
+    </DataSet>
+  </DataSets>
+  <LeftMargin>2.5cm</LeftMargin>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <PageHeight>29.7cm</PageHeight>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <PageWidth>21cm</PageWidth>
+  <rd:ReportID>cea1ef77-b78c-44fd-bf6b-eb7eaef1c5ee</rd:ReportID>
+  <BottomMargin>2.5cm</BottomMargin>
+  <ReportParameters>
+    <ReportParameter Name="status">
+      <DataType>String</DataType>
+      <Prompt>status</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>StatusList</DataSetName>
+          <ValueField>Status_EN</ValueField>
+          <LabelField>Status_EN</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+  </ReportParameters>
+  <Language>en-US</Language>
+</Report>

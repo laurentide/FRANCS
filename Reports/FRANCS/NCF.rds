@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>NCF</Name>
+  <DataSourceID>7abd14a1-2175-47b3-b86b-89e7b00ceb81</DataSourceID>
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>data source=LCL-FAXS;initial catalog=NCF</ConnectString>
+  </ConnectionProperties>
+</RptDataSource>

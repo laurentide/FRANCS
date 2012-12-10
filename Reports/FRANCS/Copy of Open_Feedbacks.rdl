@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2003/10/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <rd:GridSpacing>0.25cm</rd:GridSpacing>
+  <RightMargin>0.25in</RightMargin>
+  <Body>
+    <ReportItems>
+      <List Name="list1">
+        <Style />
+        <DataSetName>CFFList</DataSetName>
+        <ReportItems>
+          <Rectangle Name="rectangle1">
+            <Top>0.25cm</Top>
+            <ReportItems>
+              <Textbox Name="textbox13">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                </Style>
+                <ZIndex>33</ZIndex>
+                <Top>4.24206cm</Top>
+                <Height>0.5cm</Height>
+                <Width>14cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>= Fields!Vendor_Name.Value</Value>
+                <Left>3cm</Left>
+              </Textbox>
+              <Textbox Name="textbox1">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                  <FontWeight>700</FontWeight>
+                </Style>
+                <ZIndex>32</ZIndex>
+                <Top>4.24206cm</Top>
+                <Height>0.5cm</Height>
+                <Width>2.53968cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>Vendor:</Value>
+                <Left>0.46032cm</Left>
+              </Textbox>
+              <Textbox Name="textbox12">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <Format>d</Format>
+                  <TextAlign>Left</TextAlign>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                </Style>
+                <ZIndex>31</ZIndex>
+                <Top>3.28968cm</Top>
+                <Height>0.5cm</Height>
+                <Width>2.24141cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>= Fields!PONo.Value</Value>
+                <Left>15.69842cm</Left>
+              </Textbox>
+              <Textbox Name="textbox2">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                  <FontWeight>700</FontWeight>
+                </Style>
+                <ZIndex>30</ZIndex>
+                <Top>3.28968cm</Top>
+                <Height>0.5cm</Height>
+                <Width>4cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>PO Number:</Value>
+                <Left>11.57143cm</Left>
+              </Textbox>
+              <Textbox Name="textbox4">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                </Style>
+                <ZIndex>29</ZIndex>
+                <Top>3.28968cm</Top>
+                <Height>0.5cm</Height>
+                <Width>5.25cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>=Fields!OrderNo.Value</Value>
+                <Left>3cm</Left>
+              </Textbox>
+              <Textbox Name="textbox5">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                  <FontWeight>700</FontWeight>
+                </Style>
+                <ZIndex>28</ZIndex>
+                <Top>3.28968cm</Top>
+                <Height>0.5cm</Height>
+                <Width>2.53968cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>Order No:</Value>
+                <Left>0.46032cm</Left>
+              </Textbox>
+              <Textbox Name="textbox26">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                </Style>
+                <ZIndex>27</ZIndex>
+                <Top>4.87699cm</Top>
+                <Height>0.5cm</Height>
+                <Width>14cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>=Fields!CUSTOMERNAME.Value</Value>
+                <Left>3cm</Left>
+              </Textbox>
+              <Textbox Name="textbox27">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                  <FontWeight>700</FontWeight>
+                </Style>
+                <ZIndex>26</ZIndex>
+                <Top>4.87699cm</Top>
+                <Height>0.5cm</Height>
+                <Width>2.53968cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>Customer:</Value>
+                <Left>0.46032cm</Left>
+              </Textbox>
+              <Textbox Name="textbox36">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <Format>d</Format>
+                  <TextAlign>Left</TextAlign>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                </Style>
+                <ZIndex>25</ZIndex>
+                <Top>2.01984cm</Top>
+                <Height>0.5cm</Height>
+                <Width>2.24141cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>=Fields!TargetCloseOutDate.Value</Value>
+                <Left>15.69842cm</Left>
+              </Textbox>
+              <Textbox Name="textbox37">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <Format>d</Format>
+                  <TextAlign>Left</TextAlign>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                </Style>
+                <ZIndex>24</ZIndex>
+                <Top>2.65476cm</Top>
+                <Height>0.5cm</Height>
+                <Width>2.24141cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>=Fields!CloseOutDate.Value</Value>
+                <Left>15.69842cm</Left>
+              </Textbox>
+              <Textbox Name="textbox38">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <Format>d</Format>
+                  <TextAlign>Left</TextAlign>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                </Style>
+                <ZIndex>23</ZIndex>
+                <Top>1.38492cm</Top>
+                <Height>0.5cm</Height>
+                <Width>2.24141cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>=Fields!FollowUpDate.Value</Value>
+                <Left>15.69842cm</Left>
+              </Textbox>
+              <Textbox Name="textbox39">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <Format>d</Format>
+                  <TextAlign>Left</TextAlign>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                </Style>
+                <ZIndex>22</ZIndex>
+                <Top>0.75cm</Top>
+                <Height>0.5cm</Height>
+                <Width>2.24141cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>=Fields!IssueDate.Value</Value>
+                <Left>15.69842cm</Left>
+              </Textbox>
+              <Textbox Name="textbox40">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                  <FontWeight>700</FontWeight>
+                </Style>
+                <ZIndex>21</ZIndex>
+                <Top>2.65476cm</Top>
+                <Height>0.5cm</Height>
+                <Width>4cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>Close-Out Date:</Value>
+                <Left>11.57143cm</Left>
+              </Textbox>
+              <Textbox Name="textbox41">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                  <FontWeight>700</FontWeight>
+                </Style>
+                <ZIndex>20</ZIndex>
+                <Top>2.01984cm</Top>
+                <Height>0.5cm</Height>
+                <Width>4cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>Target Close-Out Date:</Value>
+                <Left>11.57143cm</Left>
+              </Textbox>
+              <Textbox Name="textbox42">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                  <FontWeight>700</FontWeight>
+                </Style>
+                <ZIndex>19</ZIndex>
+                <Top>1.38492cm</Top>
+                <Height>0.5cm</Height>
+                <Width>4cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>Follow-Up Date:</Value>
+                <Left>11.57143cm</Left>
+              </Textbox>
+              <Textbox Name="textbox43">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                  <FontWeight>700</FontWeight>
+                </Style>
+                <ZIndex>18</ZIndex>
+                <Top>0.75cm</Top>
+                <Height>0.5cm</Height>
+                <Width>4cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>Issue Date:</Value>
+                <Left>11.57143cm</Left>
+              </Textbox>
+              <Textbox Name="textbox44">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                </Style>
+                <ZIndex>17</ZIndex>
+                <Top>2.01984cm</Top>
+                <Height>0.5cm</Height>
+                <Width>5.25cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>=Fields!EmployeeWN.Value</Value>
+                <Left>3cm</Left>
+              </Textbox>
+              <Textbox Name="textbox45">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                </Style>
+                <ZIndex>16</ZIndex>
+                <Top>2.65476cm</Top>
+                <Height>0.5cm</Height>
+                <Width>5.25cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>=Fields!AssignedTo.Value</Value>
+                <Left>3cm</Left>
+              </Textbox>
+              <Textbox Name="textbox46">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                </Style>
+                <ZIndex>15</ZIndex>
+                <Top>1.38492cm</Top>
+                <Height>0.5cm</Height>
+                <Width>5.25cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>=Fields!Status_EN.Value</Value>
+                <Left>3cm</Left>
+              </Textbox>
+              <Textbox Name="textbox47">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                </Style>
+                <ZIndex>14</ZIndex>
+                <Top>0.75cm</Top>
+                <Height>0.5cm</Height>
+                <Width>5.25cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>=Fields!CategoryNo.Value</Value>
+                <Left>3cm</Left>
+              </Textbox>
+              <Textbox Name="textbox48">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                  <FontWeight>700</FontWeight>
+                </Style>
+                <ZIndex>13</ZIndex>
+                <Top>2.65476cm</Top>
+                <Height>0.5cm</Height>
+                <Width>2.53968cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>Assigned To:</Value>
+                <Left>0.46032cm</Left>
+              </Textbox>
+              <Textbox Name="textbox49">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                  <FontWeight>700</FontWeight>
+                </Style>
+                <ZIndex>12</ZIndex>
+                <Top>2.01984cm</Top>
+                <Height>0.5cm</Height>
+                <Width>2.53968cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>Issued By:</Value>
+                <Left>0.46032cm</Left>
+              </Textbox>
+              <Textbox Name="textbox50">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                  <FontWeight>700</FontWeight>
+                </Style>
+                <ZIndex>11</ZIndex>
+                <Top>1.38492cm</Top>
+                <Height>0.5cm</Height>
+                <Width>2.53968cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>Status:</Value>
+                <Left>0.46032cm</Left>
+              </Textbox>
+              <Textbox Name="textbox51">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                  <FontWeight>700</FontWeight>
+                </Style>
+                <ZIndex>10</ZIndex>
+                <Top>0.75cm</Top>
+                <Height>0.5cm</Height>
+                <Width>2.53968cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>Category:</Value>
+                <Left>0.46032cm</Left>
+              </Textbox>
+              <Textbox Name="textbox52">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <FontSize>12pt</FontSize>
+                  <TextAlign>Left</TextAlign>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                  <FontWeight>700</FontWeight>
+                </Style>
+                <ZIndex>9</ZIndex>
+                <Top>0.11508cm</Top>
+                <Height>0.63492cm</Height>
+                <Width>1cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>=Fields!NCFNo.Value</Value>
+                <Left>9.66667cm</Left>
+              </Textbox>
+              <Textbox Name="textbox53">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <FontSize>12pt</FontSize>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                  <FontWeight>700</FontWeight>
+                </Style>
+                <ZIndex>8</ZIndex>
+                <Top>0.11508cm</Top>
+                <Height>0.63492cm</Height>
+                <Width>1cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>ID#</Value>
+                <Left>8.71429cm</Left>
+              </Textbox>
+              <Textbox Name="textbox19">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <BorderStyle>
+                    <Default>Solid</Default>
+                  </BorderStyle>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                </Style>
+                <ZIndex>7</ZIndex>
+                <Top>10.5cm</Top>
+                <Width>18.25cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>=Fields!Suggestions.Value</Value>
+                <Left>0.19687in</Left>
+              </Textbox>
+              <Textbox Name="textbox20">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                  <FontWeight>700</FontWeight>
+                </Style>
+                <ZIndex>6</ZIndex>
+                <Top>10cm</Top>
+                <Height>0.5cm</Height>
+                <Width>5cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>Suggestions:</Value>
+                <Left>0.19687in</Left>
+              </Textbox>
+              <Textbox Name="textbox17">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <BorderStyle>
+                    <Default>Solid</Default>
+                  </BorderStyle>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                </Style>
+                <ZIndex>5</ZIndex>
+                <Top>9.25cm</Top>
+                <Height>0.5cm</Height>
+                <Width>18.25cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>=Fields!Cause.Value</Value>
+                <Left>0.19687in</Left>
+              </Textbox>
+              <Textbox Name="textbox18">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                  <FontWeight>700</FontWeight>
+                </Style>
+                <ZIndex>4</ZIndex>
+                <Top>8.75cm</Top>
+                <Height>0.5cm</Height>
+                <Width>5cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>Suspected Cause:</Value>
+                <Left>0.19687in</Left>
+              </Textbox>
+              <Textbox Name="textbox15">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <BorderStyle>
+                    <Default>Solid</Default>
+                  </BorderStyle>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                </Style>
+                <ZIndex>3</ZIndex>
+                <Top>8cm</Top>
+                <Height>0.5cm</Height>
+                <Width>18.25cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>=Fields!ActionT.Value</Value>
+                <Left>0.19687in</Left>
+              </Textbox>
+              <Textbox Name="textbox16">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                  <FontWeight>700</FontWeight>
+                </Style>
+                <ZIndex>2</ZIndex>
+                <Top>7.5cm</Top>
+                <Height>0.5cm</Height>
+                <Width>5cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>Immediate Action:</Value>
+                <Left>0.19687in</Left>
+              </Textbox>
+              <Textbox Name="Deficiency">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <BorderStyle>
+                    <Default>Solid</Default>
+                  </BorderStyle>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                </Style>
+                <ZIndex>1</ZIndex>
+                <Top>6.75cm</Top>
+                <rd:DefaultName>Deficiency</rd:DefaultName>
+                <Height>0.5cm</Height>
+                <Width>18.25cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>=Fields!Deficiency.Value</Value>
+                <Left>0.19687in</Left>
+              </Textbox>
+              <Textbox Name="textbox14">
+                <Style>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingBottom>2pt</PaddingBottom>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingRight>2pt</PaddingRight>
+                  <FontWeight>700</FontWeight>
+                </Style>
+                <Top>6cm</Top>
+                <Height>0.5cm</Height>
+                <Width>5cm</Width>
+                <CanGrow>true</CanGrow>
+                <Value>Description of Deficiency:</Value>
+                <Left>0.19687in</Left>
+              </Textbox>
+            </ReportItems>
+            <Height>11cm</Height>
+            <Width>19.25cm</Width>
+            <Style>
+              <BorderStyle>
+                <Default>Solid</Default>
+              </BorderStyle>
+            </Style>
+            <Left>0.5cm</Left>
+          </Rectangle>
+        </ReportItems>
+      </List>
+    </ReportItems>
+    <Style />
+    <Height>12cm</Height>
+    <ColumnSpacing>1cm</ColumnSpacing>
+  </Body>
+  <TopMargin>0.25in</TopMargin>
+  <DataSources>
+    <DataSource Name="NCF">
+      <rd:DataSourceID>60da2a7d-c5f4-4768-945b-58ede85c34cb</rd:DataSourceID>
+      <DataSourceReference>NCF</DataSourceReference>
+    </DataSource>
+  </DataSources>
+  <Code />
+  <Width>7.875in</Width>
+  <DataSets>
+    <DataSet Name="CFFList">
+      <Fields>
+        <Field Name="NCFNo">
+          <DataField>NCFNo</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="CategoryNo">
+          <DataField>CategoryNo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Status_EN">
+          <DataField>Status_EN</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="IssueDate">
+          <DataField>IssueDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="FollowUpDate">
+          <DataField>FollowUpDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="TargetCloseOutDate">
+          <DataField>TargetCloseOutDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="CloseOutDate">
+          <DataField>CloseOutDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Deficiency">
+          <DataField>Deficiency</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ActionT">
+          <DataField>ActionT</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Cause">
+          <DataField>Cause</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Suggestions">
+          <DataField>Suggestions</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AssignedTo">
+          <DataField>AssignedTo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CUSTOMERNAME">
+          <DataField>CUSTOMERNAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OrderNo">
+          <DataField>OrderNo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PONo">
+          <DataField>PONo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="VendorNo">
+          <DataField>VendorNo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Vendor_Name">
+          <DataField>Vendor_Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EmployeeWN">
+          <DataField>EmployeeWN</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>NCF</DataSourceName>
+        <CommandText>SELECT     dbo.NCF_General.NCFNo, dbo.NCF_General.CategoryNo, dbo.Status.Status_EN, dbo.NCF_General.IssueDate, dbo.NCF_Admin.FollowUpDate, 
+                      dbo.NCF_Admin.TargetCloseOutDate, dbo.NCF_Admin.CloseOutDate, dbo.NCF_General.Deficiency, dbo.NCF_General.ActionT, dbo.NCF_General.Cause, 
+                      dbo.NCF_General.Suggestions, dbo.Assignments.EmployeeName AS AssignedTo, dbo.QRY_Customers.CUSTOMERNAME, dbo.NCF_General.OrderNo, 
+                      dbo.NCF_General.PONo, dbo.NCF_General.VendorNo, dbo.VENPHY01.LRRKTX AS Vendor_Name, dbo.NCF_General.EmployeeWN
+FROM         dbo.QRY_Customers INNER JOIN
+                      dbo.NCF_General INNER JOIN
+                      dbo.Contact ON dbo.NCF_General.ContactNo = dbo.Contact.ContactNo INNER JOIN
+                      dbo.Status ON dbo.NCF_General.Status = dbo.Status.StatusNo INNER JOIN
+                      dbo.NCF_Admin ON dbo.NCF_General.NCFNo = dbo.NCF_Admin.NCFNo ON 
+                      dbo.QRY_Customers.CUSTOMERNO = dbo.Contact.CustomerNo LEFT OUTER JOIN
+                      dbo.VENPHY01 ON dbo.NCF_General.VendorNo = dbo.VENPHY01.LRRCCD LEFT OUTER JOIN
+                      dbo.Assignments ON dbo.NCF_Admin.AssignedTo = dbo.Assignments.EmployeeNo
+WHERE     (dbo.Status.StatusNo = 2) OR
+                      (dbo.Status.StatusNo = 3)
+ORDER BY dbo.NCF_General.NCFNo</CommandText>
+      </Query>
+    </DataSet>
+  </DataSets>
+  <LeftMargin>0.25in</LeftMargin>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <PageHeight>29.7cm</PageHeight>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <Description />
+  <PageWidth>21cm</PageWidth>
+  <rd:ReportID>3ecbaf70-23e4-4da9-9e1f-8861a4c4b6b7</rd:ReportID>
+  <BottomMargin>0.25in</BottomMargin>
+  <Language>en-US</Language>
+</Report>

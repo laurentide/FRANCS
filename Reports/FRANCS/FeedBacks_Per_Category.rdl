@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2003/10/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <rd:GridSpacing>0.25cm</rd:GridSpacing>
+  <RightMargin>2.5cm</RightMargin>
+  <Body>
+    <ReportItems>
+      <Chart Name="FeedBacks_Category">
+        <ThreeDProperties>
+          <Rotation>40</Rotation>
+          <Inclination>10</Inclination>
+          <Perspective>49</Perspective>
+          <Shading>Real</Shading>
+        </ThreeDProperties>
+        <Style>
+          <BackgroundColor>White</BackgroundColor>
+        </Style>
+        <Legend>
+          <Visible>true</Visible>
+          <Style>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+            <FontSize>9pt</FontSize>
+          </Style>
+          <Position>BottomCenter</Position>
+        </Legend>
+        <Palette>Excel</Palette>
+        <ChartData>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=Fields!Nb_Feedbacks.Value</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel />
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+        </ChartData>
+        <CategoryAxis>
+          <Axis>
+            <Title>
+              <Caption>Category</Caption>
+              <Style>
+                <FontSize>12pt</FontSize>
+                <FontWeight>700</FontWeight>
+              </Style>
+            </Title>
+            <Style />
+            <MajorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MinorGridLines>
+            <MajorTickMarks>Outside</MajorTickMarks>
+            <Min>0</Min>
+            <Margin>true</Margin>
+          </Axis>
+        </CategoryAxis>
+        <DataSetName>FeedBacks_Per_Category</DataSetName>
+        <Type>Column</Type>
+        <Title>
+          <Caption>Number of Feedbacks Per Category</Caption>
+          <Style>
+            <FontSize>14pt</FontSize>
+            <FontWeight>500</FontWeight>
+          </Style>
+        </Title>
+        <CategoryGroupings>
+          <CategoryGrouping>
+            <DynamicCategories>
+              <Grouping Name="FeedBacks_Category_CategoryGroup1">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!Category_EN.Value</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <Label />
+            </DynamicCategories>
+          </CategoryGrouping>
+        </CategoryGroupings>
+        <SeriesGroupings>
+          <SeriesGrouping>
+            <DynamicSeries>
+              <Grouping Name="FeedBacks_Category_SeriesGroup1">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!Category_EN.Value</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <Label />
+            </DynamicSeries>
+          </SeriesGrouping>
+        </SeriesGroupings>
+        <Subtype>Plain</Subtype>
+        <PlotArea>
+          <Style>
+            <BackgroundColor>WhiteSmoke</BackgroundColor>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+          </Style>
+        </PlotArea>
+        <ValueAxis>
+          <Axis>
+            <Title>
+              <Caption>Number of Feedbacks</Caption>
+              <Style>
+                <FontSize>12pt</FontSize>
+                <FontWeight>700</FontWeight>
+              </Style>
+            </Title>
+            <MajorGridLines>
+              <ShowGridLines>true</ShowGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MinorGridLines>
+            <MajorTickMarks>Outside</MajorTickMarks>
+            <Min>0</Min>
+            <Margin>true</Margin>
+            <Visible>true</Visible>
+            <Scalar>true</Scalar>
+          </Axis>
+        </ValueAxis>
+      </Chart>
+    </ReportItems>
+    <Style />
+    <Height>11.5cm</Height>
+    <ColumnSpacing>1cm</ColumnSpacing>
+  </Body>
+  <TopMargin>2.5cm</TopMargin>
+  <DataSources>
+    <DataSource Name="NCF">
+      <rd:DataSourceID>9ce2a598-79b1-4c2f-83a4-9da0ad833115</rd:DataSourceID>
+      <DataSourceReference>NCF</DataSourceReference>
+    </DataSource>
+  </DataSources>
+  <Width>19.75cm</Width>
+  <DataSets>
+    <DataSet Name="FeedBacks_Per_Category">
+      <Fields>
+        <Field Name="Type_EN">
+          <DataField>Type_EN</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Category_EN">
+          <DataField>Category_EN</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Nb_Feedbacks">
+          <DataField>Nb_Feedbacks</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>NCF</DataSourceName>
+        <CommandText>SELECT     dbo.QRY_NB_FeedBacks_Per_Category.*
+FROM         dbo.QRY_NB_FeedBacks_Per_Category
+WHERE     (Type_EN = @Type)
+ORDER BY Type_EN, Category_EN</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@Type">
+            <Value>=Parameters!Type.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+    </DataSet>
+    <DataSet Name="Categories">
+      <Fields>
+        <Field Name="Type_EN">
+          <DataField>Type_EN</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>NCF</DataSourceName>
+        <CommandText>SELECT     Type_EN
+FROM         dbo.QRY_CategoryTypes</CommandText>
+      </Query>
+    </DataSet>
+  </DataSets>
+  <LeftMargin>2.5cm</LeftMargin>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <PageHeight>29.7cm</PageHeight>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <PageWidth>21cm</PageWidth>
+  <rd:ReportID>2323e19d-10d5-48de-a162-ea9318d0e7a2</rd:ReportID>
+  <BottomMargin>2.5cm</BottomMargin>
+  <ReportParameters>
+    <ReportParameter Name="Type">
+      <DataType>String</DataType>
+      <Prompt>Type</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Categories</DataSetName>
+          <ValueField>Type_EN</ValueField>
+          <LabelField>Type_EN</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+  </ReportParameters>
+  <Language>en-US</Language>
+</Report>
